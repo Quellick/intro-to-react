@@ -7,6 +7,7 @@
   <body>
     <div id="greeting"></div>
     <div id="test"></div>
+    <div id="app"></div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.1.0/umd/react.development.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.1.0/umd/react-dom.development.js"></script>
@@ -17,31 +18,41 @@
         render() {
           return (
             <div>
-              <h1>Hello World!!</h1>
+              <h1>Hello {this.props.name}!</h1>
             </div>
           );
         }
       }
 
       ReactDOM.render(
-        <Greeting />, document.getElementById('greeting')
+        <Greeting name="Bloc Student"/>, document.getElementById('greeting')
       );
     </script>
 
     <script type="text/babel">
       class Example extends React.Component {
+        constructor(props){
+          super(props);
+          this.state = {
+            Developer: "Zachery Tucker Platt"
+          }
+        }
+
         render() {
           return (
             <div>
               <h1>This Is My Test Component!</h1>
+                <h1>This Site Developed By: {this.state.Developer}!</h1>
+                <h1>{this.props.proptest}!</h1>
             </div>
           );
         }
       }
 
       ReactDOM.render(
-        <Example />, document.getElementById('test')
+        <Example proptest = "This Is My Prop!!"/>, document.getElementById('test')
       );
     </script>
+
   </body>
 </html>
